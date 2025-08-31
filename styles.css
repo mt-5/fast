@@ -104,19 +104,59 @@ h1 {
 }
 
 @media (max-width: 768px) {
+    .countdown {
+        gap: 1rem;
+    }
+    
     .time {
-        font-size: 3rem;
+        font-size: 2.2rem;
     }
     
     .time-section {
-        min-width: 80px;
+        min-width: 60px;
     }
     
     .label {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
     }
     
     h1 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown {
+        gap: 0.5rem;
+    }
+    
+    .time {
         font-size: 1.8rem;
+    }
+    
+    .time-section {
+        min-width: 50px;
+    }
+    
+    .label {
+        font-size: 0.7rem;
+        margin-top: 0.3rem;
+        letter-spacing: 1px;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .container {
+        padding: 1rem;
+        width: 95%;
     }
 }
