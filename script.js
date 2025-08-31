@@ -9,33 +9,19 @@ const secondsElement = document.getElementById('seconds');
 
 // Animation function
 function animateValue(element, newValue) {
+    if (!element || !element.parentNode) return;
+    
     const currentValue = element.textContent.padStart(2, '0');
     if (currentValue === newValue) return;
     
-    // Create new element for animation
-    const newElement = document.createElement('div');
-    newElement.className = 'time';
-    newElement.textContent = newValue;
-    newElement.style.transform = 'translateY(100%)';
-    newElement.style.opacity = '0';
+    // Simple update without complex animation to avoid DOM issues
+    element.style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out';
+    element.style.transform = 'scale(1.1)';
     
-    // Add to DOM
-    element.parentNode.appendChild(newElement);
-    
-    // Trigger reflow
-    newElement.offsetHeight;
-    
-    // Animate
-    element.style.transform = 'translateY(-100%)';
-    element.style.opacity = '0';
-    newElement.style.transform = 'translateY(0)';
-    newElement.style.opacity = '1';
-    
-    // Clean up after animation
     setTimeout(() => {
-        element.remove();
-        newElement.id = element.id;
-    }, 500);
+        element.textContent = newValue;
+        element.style.transform = 'scale(1)';
+    }, 150);
 }
 
 // Update countdown
