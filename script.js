@@ -54,6 +54,19 @@ updateCountdown();
 // Update every second
 const countdownInterval = setInterval(updateCountdown, 1000);
 
+// Register Service Worker for PWA
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+                console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+                console.log('SW registration failed: ', registrationError);
+            });
+    });
+}
+
 // Handle window resize for better mobile experience
 window.addEventListener('resize', () => {
     // Force reflow to ensure smooth animations
